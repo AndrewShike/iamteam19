@@ -71,10 +71,20 @@ $before = "/(?<=";
 $after = ")(?s)(.+?)(?=BEGIN:VCALENDAR|PRODID:|X-WR-CALNAME:|X-PUBLISHED-TTL:|X-ORIGINAL-URL:|VERSION:|CALSCALE:|METHOD:|BEGIN:VEVENT|DTSTAMP:|LAST-MODIFIED:|CREATED:|SEQUENCE:|ORGANIZER;|DTSTART:|DTEND:|UID:|SUMMARY:|LOCATION:|URL:|DESCRIPTION:|CLASS:|STATUS:|PARTSTAT:|END:VEVENT|END:VCALENDAR)/";
 $i = 0;
 
-function convert($id){
+//$events[0] = array();
+//$events[0]["TEST"] = "foo";
+
+function convert($id) {
     global $i, $events, $before, $after;
     
-    $contents = file_get_contents(wp_get_attachment_url($id));
+    $contents = file_get_contents(get_attached_file($id));
+    
+//    echo "<p>convert</p>";
+//    
+//    echo "<p>count: " . count($events) . "</p>";
+    
+    //echo "<h1>contents:</h1><br><p>" . $contents . "</p>"; //_wp_get_attachment_relative_path(
+
     
     $ics_events = explode("BEGIN:VEVENT", $contents);
     array_shift($ics_events);
@@ -84,8 +94,8 @@ function convert($id){
 
         $events[$i] = array();
 
-        //$events[$i]["TEST"] = "fooey " . $i;
-
+        $events[$i]["TEST"] = "fooey " . $i;
+        
         preg_replace_callback_array(
             [
                 $before . "CREATED:" . $after => function($match) {
@@ -131,10 +141,8 @@ function convert($id){
             ],
             $ics_events[$i]
         );
-
-    //    array_push($events, $event);
     }
-    //echo "<p>" . count($events) ."</p>";
+    
     for ($i = 0; $i < count($events); $i++) {
         $stuff = $events[$i];
         foreach ($stuff as $thing => $thing_value) {
