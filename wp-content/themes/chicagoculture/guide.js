@@ -76,7 +76,7 @@ for (let k = 0; k < journey_hours.length; k++) {
     place_hours = journey_hours[k].innerHTML.split("<br>");
     if ( journey_hours[k].innerHTML.split("<br>")[0].includes("Sunday")) {
         // place_hours.shift();
-        full_place_hours = journey_hours[k];
+        full_place_hours = journey_hours[k].innerHTML;
         //// for (let l = 0; l < place_hours.length; l++) {
         ////     if 
         //// }
@@ -87,7 +87,7 @@ for (let k = 0; k < journey_hours.length; k++) {
 
         journey_hours[k].addEventListener("click", function() {
             if (journey_hours[k].classList.contains("hours-condensed")) {
-                journey_hours[k] = full_place_hours;
+                journey_hours[k].innerHTML = full_place_hours;
                 journey_hours[k].classList.remove("hours-condensed");
             }
             else {
