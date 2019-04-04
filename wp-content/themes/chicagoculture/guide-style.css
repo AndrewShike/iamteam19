@@ -3,7 +3,13 @@
   margin: 0; 
   padding: 0; 
   list-style-type: decimal; 
-  list-style-position: inside; }
+  list-style-position: inside; 
+  transition: all .2s;
+}
+
+.guide-list.active {
+ transition: all .2s;
+}
 
 /* title header */
 .place-title {
