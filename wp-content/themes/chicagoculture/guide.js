@@ -76,7 +76,7 @@ for (let k = 0; k < journey_hours.length; k++) {
     place_hours = journey_hours[k].innerHTML.split("<br>");
     if ( journey_hours[k].innerHTML.split("<br>")[0].includes("Sunday")) {
         // place_hours.shift();
-        full_place_hours = place_hours;
+        full_place_hours = journey_hours[k];
         //// for (let l = 0; l < place_hours.length; l++) {
         ////     if 
         //// }
