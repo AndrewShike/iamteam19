@@ -2,7 +2,7 @@ var acc = document.getElementsByClassName("accordion");
 var arrow = document.getElementsByClassName("accordion-arrow");
 var main = document.getElementById("main-content");
 // var place_hours_p = document.getElementsByClassName("place-hours");
-var journey_hours = document.querySelectorAll(".place-hours > p")
+var journey_hours = document.querySelectorAll(".place-hours");
 var place_hours;
 var full_place_hours;
 var todays_place_hours;
@@ -71,31 +71,30 @@ for (let i = 0; i < acc.length; i++) {
 // If not, then display the full hours.
 // Formatting instructions are in Places new post.
 
-// var journey_hours = document.querySelectorAll(".place-hours > p")
-// var place_hours;
-// var full_place_hours;
-// var todays_place_hours;
-// var date = new Date();
-// var day = date.getDay();
+for (let k = 0; k < journey_hours.length; k++) {
+    journey_hours[k].innerHTML.replace('<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">','');
+    place_hours = journey_hours[k].innerHTML.split("<br>");
+    if ( journey_hours[k].innerHTML.split("<br>")[0].includes("Sunday")) {
+        // place_hours.shift();
+        full_place_hours = place_hours;
+        //// for (let l = 0; l < place_hours.length; l++) {
+        ////     if 
+        //// }
+        ////var n = str.includes(weekday[day]);
+        todays_place_hours = place_hours[day];
 
-// for (let k = 0; k < journey_hours.length; k++) {
-//     var place_hours = journey_hours[k].split("<br>");
-//     full_place_hours = place_hours;
-//     // for (let l = 0; l < place_hours.length; l++) {
-//     //     if 
-//     // }
-//     //var n = str.includes(weekday[day]);
-//     todays_place_hours = place_hours[day];
+        journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
 
-//     place_hours.innerHTML = todays_place_hours;
-
-//     journey_hours[k].addEventListener("click", function() {
-//     if () {
-//         place_hours.innerHTML = full_place_hours.innerHTML;
-//     }
-//     else {
-//         place_hours.innerHTML = todays_place_hours.innerHTML;
-//     }
-//     });
-
-// }
+        journey_hours[k].addEventListener("click", function() {
+            if (journey_hours[k].classList.contains("hours-condensed")) {
+                journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + full_place_hours;
+                journey_hours[k].classList.remove("hours-condensed");
+            }
+            else {
+                journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
+                journey_hours[k].classList.add("hours-condensed");
+            }
+        });
+    }
+    
+}

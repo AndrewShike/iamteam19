@@ -61,21 +61,21 @@ get_header();
 										<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 										<?php endif; ?></div>
 											
-									<?php if (the_field('place_description')){ ?>
+									<?php if (get_field('place_description')): ?>
 										<p><?php the_field('place_description'); ?></p>
-									<?php } ?>
-									<?php if (the_field('place_cost')){ ?>
+									<?php endif; ?>
+									<?php if (get_field('place_cost')): ?>
 										<p><img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-dollar.png" alt=""/> Cost: <?php the_field('place_cost'); ?></p>
-									<?php } ?>
-									<?php if (the_field('place_address')){ ?>
+									<?php endif; ?>
+									<?php if (get_field('place_address')): ?>
 										<p><img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-maps.png" alt=""/> <?php the_field('place_address'); ?></p>
-									<?php } ?>
-									<?php if (the_field('place_website')){ ?>
+									<?php endif; ?>
+									<?php if (get_field('place_website')): ?>
 										<p><img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-www.png" alt=""/> <?php the_field('place_website'); ?></p>
-									<?php } ?>	
-									<?php if (the_field('place_hours')){ ?>
-										<p class="place-hours"><img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt=""/> <?php the_field('place_hours'); ?></p>
-									<?php } ?>
+									<?php endif; ?>	
+									<?php if (get_field('place_hours')): ?>
+										<p class="place-hours hours-condensed"><img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt=""/><?php the_field('place_hours'); ?></p>
+									<?php endif; ?>
 								</div>								
 					    <?php endforeach; ?>
 					    </ol>
