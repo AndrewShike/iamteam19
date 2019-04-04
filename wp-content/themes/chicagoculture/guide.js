@@ -87,7 +87,7 @@ for (let k = 0; k < journey_hours.length; k++) {
 
         journey_hours[k].addEventListener("click", function() {
             if (journey_hours[k].classList.contains("hours-condensed")) {
-                journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + full_place_hours;
+                journey_hours[k].innerHTML = full_place_hours;
                 journey_hours[k].classList.remove("hours-condensed");
             }
             else {
