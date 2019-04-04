@@ -1,0 +1,73 @@
+/* unordered list for numbered places */
+.guide-list {
+  margin: 0; 
+  padding: 0; 
+  list-style-type: decimal; 
+  list-style-position: inside; }
+
+/* title header */
+.place-title {
+  display: inline; }
+
+#journey-description {
+  padding: 16px 0 80px 0;
+}
+
+
+/* Accordions */
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  padding-bottom: 5vh;
+}
+
+/* sizes place images */
+.place-img-container {
+  width: 100%; 
+  height: 40vh;
+  overflow: hidden;
+}
+.place-img-container img{
+  transform: translateY(-22.5%);
+  object-fit: fill;
+  width: 100%;
+}
+.panel p img{
+  vertical-align: -16.5%;
+  margin-right: 16px;
+}
+
+.accordion li {
+  float: left;
+  color: #DF1A82;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.accordion img {
+  float: right;
+  padding-top: 4px;
+}
+
+/* Mobile responsive */
+@media only screen and (max-width: 650px) {
+
+}
