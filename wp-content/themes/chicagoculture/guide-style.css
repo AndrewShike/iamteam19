@@ -1,15 +1,41 @@
 /* unordered list for numbered places */
-.guide-list {
+/*.guide-list {
   margin: 0; 
   padding: 0; 
   list-style-type: decimal; 
-  list-style-position: inside; 
-  transition: all .2s;
+  list-style-position: inside; }*/
+.guide-list > * {
+	background-color: white;
 }
 
-.guide-list .active {
- transition: all .2s;
+.guide-list {
+  counter-reset: my-awesome-counter;
+  list-style: none;
+  padding-left: 40px;
 }
+.guide-list li {
+  margin: 0 0 0.5rem 0;
+  counter-increment: my-awesome-counter;
+  position: relative;
+}
+.guide-list li::before {
+  content: counter(my-awesome-counter);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  position: absolute;
+  --size: 32px;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  background: #df1a82;
+  border-radius: 50%;
+  text-align: center;
+}
+
 
 /* title header */
 .place-title {
@@ -73,6 +99,10 @@
   padding-top: 4px;
 }
 
+.place-hours {
+  margin-left: 2.2em; 
+ text-indent: -2.2em 
+}
 /* Mobile responsive */
 @media only screen and (max-width: 650px) {
 
