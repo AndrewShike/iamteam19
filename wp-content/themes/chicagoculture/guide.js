@@ -20,7 +20,7 @@ if (dumbphone.matches) {
     main_previous_height = (3 * acc.length * 62) + 600;
 }
 if (desktop.matches) {
-    main_previous_height = ( acc.length * 62 ) + 600;
+    main_previous_height = ( acc.length * 62 ) + 800;
 }
 
 for (let i = 0; i < acc.length; i++) {
