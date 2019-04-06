@@ -4,8 +4,8 @@ var main = document.getElementById("main-content");
 // var place_hours_p = document.getElementsByClassName("place-hours");
 var journey_hours = document.querySelectorAll(".place-hours");
 var place_hours;
-var full_place_hours;
-var todays_place_hours;
+var full_place_hours = [];
+var todays_place_hours = [];
 var date = new Date();
 var day = date.getDay();
 var main_previous_height;
@@ -72,29 +72,58 @@ for (let i = 0; i < acc.length; i++) {
 // Formatting instructions are in Places new post.
 
 for (let k = 0; k < journey_hours.length; k++) {
-    journey_hours[k].innerHTML.replace('<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">','');
-    place_hours = journey_hours[k].innerHTML.split("<br>");
-    if ( journey_hours[k].innerHTML.split("<br>")[0].includes("Sunday")) {
+    place_hours = journey_hours[k].innerHTML.replace('<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">','').split("<br>");
+    
+    if ( place_hours[0].includes("Sunday")) {
         // place_hours.shift();
-        full_place_hours = journey_hours[k].innerHTML;
+        full_place_hours[k] = journey_hours[k].innerHTML;
         //// for (let l = 0; l < place_hours.length; l++) {
         ////     if 
         //// }
         ////var n = str.includes(weekday[day]);
-        todays_place_hours = place_hours[day];
+        todays_place_hours[k] = place_hours[day];
 
-        journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
+        journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours[k];
 
         journey_hours[k].addEventListener("click", function() {
-            if (journey_hours[k].classList.contains("hours-condensed")) {
-                journey_hours[k].innerHTML = full_place_hours;
-                journey_hours[k].classList.remove("hours-condensed");
+            if (this.classList.contains("hours-condensed")) {
+                this.innerHTML = full_place_hours[k];
+                this.classList.remove("hours-condensed");
             }
             else {
-                journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
-                journey_hours[k].classList.add("hours-condensed");
+                this.innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours[k];
+                this.classList.add("hours-condensed");
             }
         });
     }
     
 }
+
+// for (let k = 0; k < journey_hours.length; k++) {
+//     place_hours = journey_hours[k].innerHTML.replace('<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">','').split("<br>");
+    
+//     if ( place_hours[0].includes("Sunday")) {
+//         full_place_hours = journey_hours[k].innerHTML;
+
+//         todays_place_hours = place_hours[day];
+
+//         journey_hours[k].innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
+//     }
+// }
+
+// for (let j = 0; j < journey_hours.length; j++) {
+// 	place_hours = journey_hours[k].innerHTML.replace('<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">','').split("<br>");
+    
+// 	if ( place_hours[0].includes("Sunday")) {
+// 	    journey_hours[k].addEventListener("click", function() {
+// 	        if (this.classList.contains("hours-condensed")) {
+// 	            this.innerHTML = full_place_hours;
+// 	            this.classList.remove("hours-condensed");
+// 	        }
+// 	        else {
+// 	            this.innerHTML = '<img src="http://goodspark.com/iamteam19/wp-content/uploads/2019/03/icon-clock.png" alt="">' + todays_place_hours;
+// 	            this.classList.add("hours-condensed");
+// 	        }
+// 	    });
+// 	}
+// }
