@@ -18,7 +18,7 @@ get_header();
 				<div class="header-content">
 						
 					<h1 class="et_pb_module_header" style="font-size:60px; line-height: 1.2em;">Journey Chicago</h1>
-						
+					<h1 class="entry-title main_title"><?php the_title(); ?></h1>	
 					<div class="et_pb_header_content_wrapper"></div>
 					
 				</div>
