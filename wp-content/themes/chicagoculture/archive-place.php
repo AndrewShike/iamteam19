@@ -16,21 +16,47 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) : ?>
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post(); ?>
             
-            <h1>	<?php the_title(); ?> </h1>
+		<?php
+            
+        $members = new WP_Query(
+            array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'members',
+                    'member_type' => 'core-member',
+                    'order' => 'ASC',
+                    'orderby' => 'title'
+                )
+        );
+        
+		if ( $members->have_posts() ) : while ( $members->have_posts() ) : $members->the_post(); ?>
+            
+            <p> <?php the_title(); ?> </p>
+            <?php 
+            
+            the_post_thumbnail();
+            the_excerpt();
+            
+            $events = new WP_Query(
+                array(
+                    'posts_per_page' => 3,
+                    'post_type' => 'event'
+//                    'member_type' => 'core-member',
+//                    'order' => 'ASC',
+//                    'orderby' => 'title'
+                    
+                    //-------------------filter by custom field of current post > https://www.advancedcustomfields.com/resources/query-posts-custom-fields/
+                )
+            );
+            
+            if ( $events->have_posts() ) : while ( $events->have_posts() ) : $events->the_post(); ?> 
+            
+                <p> <?php the_title(); ?> </p>
+            
+            <?php endwhile; endif; ?>
+        <?php endwhile; endif; ?>
+		</main>
+	</div>
+</div>
 
-			<?php endwhile;
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div><!-- .wrap -->
-
-<?php get_footer();
+<?php get_footer(); ?>
