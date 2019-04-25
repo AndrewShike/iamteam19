@@ -1,0 +1,147 @@
+.list h1 {
+    background-color: deeppink;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.list .upcomingbanner h1 {
+    font-size: 2em;
+}
+
+.list h3 {
+    background-color: white;
+    width: 20vw;
+    padding: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.list h2 {
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+.list h4 {
+    font-size: 1em;
+    color: darkgray;
+    margin: 0;
+}
+
+.list h5 {
+    
+    margin: 0;
+}
+
+.list p {
+    padding: 1em;
+    font-size: 1em;
+}
+
+.list .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.list .topbanner {
+    background-image: url("featured.png");
+    width: 95%;
+    height: 350px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.list .topbanner h1 {
+    text-decoration: underline;
+}
+
+.list .monthlybanner {
+    background-image: url("banner4.jpg");
+    background-color: red;
+    width: 55%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.list .featuredbanner {
+    background-image: url("banner1.jpg");
+    background-color: blue;
+    width: 35%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.list .popup {
+    width: 0;
+    height: 0;
+    background-color: bisque;
+}
+
+#pop {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+.list nav ul {
+    text-align: center;
+}
+
+.list nav li {
+    display: inline-block;
+    float: none;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f5f5f5;
+    font-size: 1.5em;
+    color: darkslategray;
+    transition: .2s ease-in;
+    padding: .5em;
+}
+
+.list nav li:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.list .month-parent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.list .month-child {
+    padding-bottom: 20px;
+}
+
+.list .month-child p {
+    font-size: 1em;
+}
+
+.list .month-btn {
+    border: none;
+    background-color: inherit;
+    transition: 1s;
+}
+
+.list body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #f5f5f5;
+    width: 100%;
+    
+}
+
